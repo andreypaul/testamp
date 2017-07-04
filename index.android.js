@@ -1,53 +1,61 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
+    AppRegistry,
+    StyleSheet,
+    Text,
+    View
 } from 'react-native';
 
-export default class testamp extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
+import Splash from './screens/Splash';
+import MainScreen from './screens/MainScreen';
+
+
+export default class amp extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            showSplash: true,
+
+        }
+
+    }
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({
+                showSplash: false
+            });
+        }, 5000);
+    }
+
+    render() {
+
+        let show = null;
+
+        if (this.state.showSplash === true) {
+            show = <Splash/>
+        } else {
+            show = <MainScreen/>
+        }
+
+        return (
+            <View style={styles.container}>
+                {show}
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    container: {
+        flex: 1,
+    },
+    welcome: {
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 10,
+    },
 });
 
-AppRegistry.registerComponent('testamp', () => testamp);
+AppRegistry.registerComponent('amp', () => amp);
