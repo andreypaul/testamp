@@ -8,6 +8,9 @@ import {
     ActivityIndicator,
     Animated,
 } from 'react-native';
+import {Scene, Router, Actions} from 'react-native-router-flux';
+
+import MainScreen from '../screens/MainScreen';
 
 
 export default class Splash extends Component {
@@ -28,6 +31,9 @@ export default class Splash extends Component {
                 duration: 5000,
             }
         ).start();
+        setTimeout(()=> {
+            Actions.MainScreen();
+        }, 5000)
     }
 
     render() {

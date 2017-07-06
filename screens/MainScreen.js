@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
-import Mapbox, { MapView } from 'react-native-mapbox-gl';
+import React, {Component} from 'react';
+import Mapbox, {MapView} from 'react-native-mapbox-gl';
 import {
     AppRegistry,
     StyleSheet,
     Text,
     StatusBar,
     View,
-    ScrollView
+    ScrollView,
+    TouchableOpacity,
 } from 'react-native';
+import {Actions} from 'react-native-router-flux';
+
+import BaseProfile from '../screens/BaseProfile';
 
 const accessToken = 'pk.eyJ1IjoiYW5kcmV5cGF1bCIsImEiOiJjajIxczFzMTIwMDF3MnhwamVjeTBtc2luIn0.vEZ1ABl11ktV9Njfx47GBA';
 Mapbox.setAccessToken(accessToken);
@@ -26,17 +30,17 @@ export default class MainScreen extends Component {
             title: 'La Grange',
             subtitle: 'Репетиционная база La Grange',
             rightCalloutAccessory: {
-                source: { uri: 'https://d30y9cdsu7xlg0.cloudfront.net/png/50747-200.png' },
+                source: {uri: 'https://d30y9cdsu7xlg0.cloudfront.net/png/50747-200.png'},
                 height: 25,
                 width: 25
             },
             annotationImage: {
-                source: { uri: 'https://d30y9cdsu7xlg0.cloudfront.net/png/50747-200.png' },
+                source: {uri: 'https://d30y9cdsu7xlg0.cloudfront.net/png/50747-200.png'},
                 height: 25,
                 width: 25
             },
             id: 'marker1'
-        }, ]
+        },]
     };
 
     componentWillMount() {
@@ -58,13 +62,13 @@ export default class MainScreen extends Component {
     }
 
 
-
-
     render() {
         return (
             <View style={styles.container}>
                 <MapView
-                    ref={map => { this._map = map; }}
+                    ref={map => {
+                        this._map = map;
+                    }}
                     style={styles.map}
                     initialCenterCoordinate={this.state.center}
                     initialZoomLevel={this.state.zoom}
@@ -87,21 +91,21 @@ export default class MainScreen extends Component {
                     onLongPress={this.onLongPress}
                     onTap={this.onTap}
                 >
-
                 </MapView>
 
                 <ScrollView style={styles.scrollView}>
 
-                    <View style={{
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        height: 140,
-                        backgroundColor: '#FFFFFF',
-                        paddingLeft: 20,
-                        paddingRight: 20,
-                        borderBottomWidth: 0.5,
-                        borderBottomColor: 'gray',
-                    }}>
+                    <TouchableOpacity onPress={Actions.BaseProfile}
+                                      style={{
+                                          flexDirection: 'row',
+                                          alignItems: 'center',
+                                          height: 140,
+                                          backgroundColor: '#FFFFFF',
+                                          paddingLeft: 20,
+                                          paddingRight: 20,
+                                          borderBottomWidth: 0.5,
+                                          borderBottomColor: 'gray',
+                                      }}>
                         <View style={{
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -120,19 +124,20 @@ export default class MainScreen extends Component {
                             <Text>5-я ул. Ямского поля, д. 9</Text>
                             <Text>м. Белорусская</Text>
                         </View>
-                    </View>
+                    </TouchableOpacity>
 
 
-                    <View style={{
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        height: 140,
-                        backgroundColor: '#FFFFFF',
-                        paddingLeft: 20,
-                        paddingRight: 20,
-                        borderBottomWidth: 0.5,
-                        borderBottomColor: 'gray',
-                    }}>
+                    <TouchableOpacity onPress={Actions.BaseProfile}
+                                      style={{
+                                          flexDirection: 'row',
+                                          alignItems: 'center',
+                                          height: 140,
+                                          backgroundColor: '#FFFFFF',
+                                          paddingLeft: 20,
+                                          paddingRight: 20,
+                                          borderBottomWidth: 0.5,
+                                          borderBottomColor: 'gray',
+                                      }}>
                         <View style={{
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -151,19 +156,20 @@ export default class MainScreen extends Component {
                             <Text>5-я ул. Ямского поля, д. 9</Text>
                             <Text>м. Белорусская</Text>
                         </View>
-                    </View>
+                    </TouchableOpacity>
 
 
-                    <View style={{
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        height: 140,
-                        backgroundColor: '#FFFFFF',
-                        paddingLeft: 20,
-                        paddingRight: 20,
-                        borderBottomWidth: 0.5,
-                        borderBottomColor: 'gray',
-                    }}>
+                    <TouchableOpacity onPress={Actions.BaseProfile}
+                                      style={{
+                                          flexDirection: 'row',
+                                          alignItems: 'center',
+                                          height: 140,
+                                          backgroundColor: '#FFFFFF',
+                                          paddingLeft: 20,
+                                          paddingRight: 20,
+                                          borderBottomWidth: 0.5,
+                                          borderBottomColor: 'gray',
+                                      }}>
                         <View style={{
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -182,18 +188,19 @@ export default class MainScreen extends Component {
                             <Text>5-я ул. Ямского поля, д. 9</Text>
                             <Text>м. Белорусская</Text>
                         </View>
-                    </View>
+                    </TouchableOpacity>
 
-                    <View style={{
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        height: 140,
-                        backgroundColor: '#FFFFFF',
-                        paddingLeft: 20,
-                        paddingRight: 20,
-                        borderBottomWidth: 0.5,
-                        borderBottomColor: 'gray',
-                    }}>
+                    <TouchableOpacity onPress={Actions.BaseProfile}
+                                      style={{
+                                          flexDirection: 'row',
+                                          alignItems: 'center',
+                                          height: 140,
+                                          backgroundColor: '#FFFFFF',
+                                          paddingLeft: 20,
+                                          paddingRight: 20,
+                                          borderBottomWidth: 0.5,
+                                          borderBottomColor: 'gray',
+                                      }}>
                         <View style={{
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -212,10 +219,10 @@ export default class MainScreen extends Component {
                             <Text>5-я ул. Ямского поля, д. 9</Text>
                             <Text>м. Белорусская</Text>
                         </View>
-                    </View>
-
+                    </TouchableOpacity>
 
                 </ScrollView>
+
             </View>
         );
     }
